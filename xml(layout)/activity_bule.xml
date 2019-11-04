@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bule"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.minch.test0518_1.BuleActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ScrollView1">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                android:text="정보 입력"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textViewReciev" />
+
+            <!--ip입력부분-->
+            <!--<EditText-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:hint="server-ip"-->
+            <!--android:ems="13"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_below="@+id/textViewReciev"-->
+            <!--android:id="@+id/addressText"-->
+            <!--android:layout_marginTop="60dp" />-->
+
+            <!--&lt;!&ndash;port입력부분&ndash;&gt;-->
+            <!--<EditText-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:hint="server-port"-->
+            <!--android:ems="13"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_below="@+id/addressText"-->
+            <!--android:id="@+id/portText" />-->
+
+            <!--id입력부분-->
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="네이버 ID를 입력"
+                android:ems="13"
+                android:layout_marginTop="10dp"
+                android:id="@+id/idText"
+                android:layout_below="@+id/del_pwpText" />
+
+            <!--pw입력부분-->
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="네이버 PassWord를 입력"
+                android:ems="13"
+                android:layout_marginTop="10dp"
+                android:id="@+id/pwText"
+                android:layout_below="@+id/idText"
+                android:layout_alignStart="@+id/idText" />
+
+            <!--port입력부분-->
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="사용할 문장을 입력 하세요."
+                android:ems="13"
+                android:layout_marginTop="70dp"
+                android:id="@+id/pwpText"
+                android:layout_below="@+id/textViewReciev" />
+
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="13"
+                android:layout_marginTop="10dp"
+                android:id="@+id/del_pwpText"
+                android:layout_below="@+id/pwpText" />
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/ipTextview"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:ems="10"-->
+            <!--android:layout_below="@+id/pwText"-->
+            <!--android:layout_alignStart="@id/pwText"-->
+            <!--android:layout_alignEnd="@id/pwText"/>-->
+
+            <Button
+                android:text="연결"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonClear"
+                android:layout_alignBaseline="@+id/buttonConnect"
+                android:layout_alignBottom="@+id/buttonConnect"
+                android:layout_alignEnd="@+id/pwText" />
+
+            <!--<Button-->
+            <!--android:text="IP확인"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/buttonIpsearch"-->
+            <!--android:layout_below="@+id/ipTextview"-->
+            <!--android:layout_alignEnd="@+id/ipTextview"-->
+            <!--android:layout_alignStart="@+id/ipTextview"-->
+            <!--android:layout_marginTop="80dp"/>-->
+            <!--<Button-->
+            <!--android:id="@+id/blue_B"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/select_func"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:text="블루투스"/>-->
+
+            <Button
+                android:text="전송"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonConnect"
+                android:layout_below="@+id/select_func"
+                android:layout_alignStart="@+id/pwText" />
+
+            <Button
+                android:id="@+id/buttonback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="뒤로가기" />
+
+            <RadioGroup
+                android:id="@+id/select_func"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/pwText"
+                android:layout_below="@+id/pwText"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/new_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신규등록" />
+
+                <RadioButton
+                    android:id="@+id/change_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="정보변경" />
+
+                <RadioButton
+                    android:id="@+id/clear_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="계정삭제" />
+            </RadioGroup>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
