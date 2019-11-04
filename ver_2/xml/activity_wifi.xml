@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.minch.my_semi.WifiActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ScrollView1">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                android:text="정보 입력"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textViewReciev" />
+
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="네이버 ID를 입력"
+                android:ems="13"
+                android:layout_marginTop="10dp"
+                android:id="@+id/idText"
+                android:layout_below="@+id/del_pwpText" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="네이버 PassWord를 입력"
+                android:ems="13"
+                android:layout_marginTop="10dp"
+                android:id="@+id/pwText"
+                android:layout_below="@+id/idText"
+                android:layout_alignStart="@+id/idText" />
+
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="ip주소를 입력 하세요"
+                android:ems="13"
+                android:layout_marginTop="70dp"
+                android:id="@+id/ipAdd"
+                android:layout_below="@+id/textViewReciev"/>
+
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="포트 번호를 입력 하세요"
+                android:ems="13"
+                android:id="@+id/portNum"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/ipAdd"/>
+
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="사용할 문장을 입력 하세요."
+                android:ems="13"
+                android:layout_marginTop="10dp"
+                android:id="@+id/pwpText"
+                android:layout_below="@+id/portNum" />
+
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="13"
+                android:layout_marginTop="10dp"
+                android:id="@+id/del_pwpText"
+                android:layout_below="@+id/pwpText" />
+
+            <Button
+                android:text="초기화"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/clearBtn"
+                android:layout_alignBaseline="@+id/buttonConnect"
+                android:layout_alignBottom="@+id/buttonConnect"
+                android:layout_alignEnd="@+id/pwText" />
+
+            <Button
+                android:text="전송"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonConnect"
+                android:layout_below="@+id/select_func"
+                android:layout_alignStart="@+id/pwText" />
+
+            <Button
+                android:id="@+id/buttonback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="뒤로가기" />
+
+            <RadioGroup
+                android:id="@+id/select_func"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/pwText"
+                android:layout_below="@+id/pwText"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/new_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신규등록" />
+
+                <RadioButton
+                    android:id="@+id/change_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="정보변경" />
+
+                <RadioButton
+                    android:id="@+id/clear_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="계정삭제" />
+            </RadioGroup>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
