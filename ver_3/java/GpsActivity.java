@@ -149,7 +149,6 @@ public class GpsActivity extends AppCompatActivity {
         // 블루투스 활성화하기
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); // 블루투스 어댑터를 디폴트 어댑터로 설정
         if(bluetoothAdapter == null) { // 디바이스가 블루투스를 지원하지 않을 때
-            // 여기에 처리 할 코드를 작성하세요.
             Toast.makeText(GpsActivity.this, "블루투스를 지원하지 않는 기기입니다.", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -159,7 +158,6 @@ public class GpsActivity extends AppCompatActivity {
             } else { // 블루투스가 비 활성화 상태 (기기에 블루투스가 꺼져있음)
                 // 블루투스를 활성화 하기 위한 다이얼로그 출력
                 Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                // 선택한 값이 onActivityResult 함수에서 콜백된다.
                 startActivityForResult(intent, REQUEST_ENABLE_BT);
             }
         }
@@ -247,7 +245,7 @@ public class GpsActivity extends AppCompatActivity {
             }
         }
         // UUID 생성
-        UUID uuid = java.util.UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+        UUID uuid = java.util.UUID.fromString("----");
         // Rfcomm 채널을 통해 블루투스 디바이스와 통신하는 소켓 생성
         try {
             bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
@@ -338,14 +336,7 @@ public class GpsActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int permsRequestCode, @NonNull String[] permissions, @NonNull int[] grandResults) {
 
         if ( permsRequestCode == PERMISSIONS_REQUEST_CODE && grandResults.length == REQUIRED_PERMISSIONS.length) {
-
-            // 요청 코드가 PERMISSIONS_REQUEST_CODE 이고, 요청한 퍼미션 개수만큼 수신되었다면
-
             boolean check_result = true;
-
-
-            // 모든 퍼미션을 허용했는지 체크합니다.
-
             for (int result : grandResults) {
                 if (result != PackageManager.PERMISSION_GRANTED) {
                     check_result = false;
@@ -360,7 +351,6 @@ public class GpsActivity extends AppCompatActivity {
                 ;
             }
             else {
-                // 거부한 퍼미션이 있다면 앱을 사용할 수 없는 이유를 설명해주고 앱을 종료합니다.2 가지 경우가 있습니다.
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])
                         || ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[1])) {
@@ -381,8 +371,6 @@ public class GpsActivity extends AppCompatActivity {
 
     void checkRunTimePermission(){
 
-        //런타임 퍼미션 처리
-        // 1. 위치 퍼미션을 가지고 있는지 체크합니다.
         int hasFineLocationPermission = ContextCompat.checkSelfPermission(GpsActivity.this,
                 Manifest.permission.ACCESS_FINE_LOCATION);
         int hasCoarseLocationPermission = ContextCompat.checkSelfPermission(GpsActivity.this,
@@ -392,29 +380,17 @@ public class GpsActivity extends AppCompatActivity {
         if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
                 hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED) {
 
-            // 2. 이미 퍼미션을 가지고 있다면
-            // ( 안드로이드 6.0 이하 버전은 런타임 퍼미션이 필요없기 때문에 이미 허용된 걸로 인식합니다.)
 
+        } else {
 
-            // 3.  위치 값을 가져올 수 있음
-
-
-
-        } else {  //2. 퍼미션 요청을 허용한 적이 없다면 퍼미션 요청이 필요합니다. 2가지 경우(3-1, 4-1)가 있습니다.
-
-            // 3-1. 사용자가 퍼미션 거부를 한 적이 있는 경우에는
             if (ActivityCompat.shouldShowRequestPermissionRationale(GpsActivity.this, REQUIRED_PERMISSIONS[0])) {
 
-                // 3-2. 요청을 진행하기 전에 사용자가에게 퍼미션이 필요한 이유를 설명해줄 필요가 있습니다.
                 Toast.makeText(GpsActivity.this, "이 앱을 실행하려면 위치 접근 권한이 필요합니다.", Toast.LENGTH_LONG).show();
-                // 3-3. 사용자게에 퍼미션 요청을 합니다. 요청 결과는 onRequestPermissionResult에서 수신됩니다.
                 ActivityCompat.requestPermissions(GpsActivity.this, REQUIRED_PERMISSIONS,
                         PERMISSIONS_REQUEST_CODE);
 
 
             } else {
-                // 4-1. 사용자가 퍼미션 거부를 한 적이 없는 경우에는 퍼미션 요청을 바로 합니다.
-                // 요청 결과는 onRequestPermissionResult에서 수신됩니다.
                 ActivityCompat.requestPermissions(GpsActivity.this, REQUIRED_PERMISSIONS,
                         PERMISSIONS_REQUEST_CODE);
             }
@@ -426,7 +402,6 @@ public class GpsActivity extends AppCompatActivity {
 
     public String getCurrentAddress( double latitude, double longitude) {
 
-        //지오코더... GPS를 주소로 변환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
 
         List<Address> addresses;
@@ -458,7 +433,6 @@ public class GpsActivity extends AppCompatActivity {
     }
 
 
-    //여기부터는 GPS 활성화를 위한 메소드들
     private void showDialogForLocationServiceSetting() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(GpsActivity.this);
@@ -483,27 +457,6 @@ public class GpsActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        switch (requestCode) {
-//
-//            case GPS_ENABLE_REQUEST_CODE:
-//
-//                if (checkLocationServicesStatus()) {
-//                    if (checkLocationServicesStatus()) {
-//
-//                        Log.d("@@@", "onActivityResult : GPS 활성화 되있음");
-//                        checkRunTimePermission();
-//                        return;
-//                    }
-//                }
-//
-//                break;
-//        }
-//    }
 
     public boolean checkLocationServicesStatus() {
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
