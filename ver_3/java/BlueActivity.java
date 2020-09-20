@@ -152,7 +152,6 @@ public class BlueActivity extends AppCompatActivity {
         // 블루투스 활성화하기
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); // 블루투스 어댑터를 디폴트 어댑터로 설정
         if(bluetoothAdapter == null) { // 디바이스가 블루투스를 지원하지 않을 때
-            // 여기에 처리 할 코드를 작성하세요.
             Toast.makeText(BlueActivity.this, "블루투스를 지원하지 않는 기기입니다.", Toast.LENGTH_SHORT).show();
             finish();
         }
